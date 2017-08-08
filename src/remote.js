@@ -15,7 +15,7 @@ function remoteVT(source, ready) {
 
     request({url: url, gzip: true, encoding: null}, function(err, res, body) {
       if (err) return done(err);
-      else if (res.statusCode === 200) return done(null, parseVT(body, tile, source));
+      else if (res.statusCode === 200) return done(null, body);
       else if (res.statusCode === 401) return done();
       else return done(new Error('Server responded with status code ' + res.statusCode));
     });
